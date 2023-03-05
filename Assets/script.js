@@ -9,7 +9,7 @@ var initialsEl = document.querySelector("#initials");
 
 
 var currentQuestionIndex = 0;
-var time = questions.length * 15;
+var time = questions.length * 10;
 var timerId;
 
 startBtn.onclick = startQuiz;
