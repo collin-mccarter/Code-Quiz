@@ -1,64 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Code Quiz</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="./Assets/style.css" rel="stylesheet">
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coding Quiz</title>
 
-    <body>
-        <div class="highscores"><a>Highscores</a></div>
+    <link rel="stylesheet" href="./Assets/style.css" />
+  </head>
 
-        <div class="timer">Time Remaining:<span id="time">60</span></div>
+  <body>
+    <header class="scores"><a href="score.html">View Highscores</a></header>
 
-        <!-- rules -->
-        <section class="info-box">
-            <p class="info-title" id="start-screen">Quiz Rules:</p>
-            <p>
-                <ol>
-                    <li class="rules">You will only have 60 seconds for all questions.</li>
-                    <li class="rules">Once you select an answer, it cannot be changed.</li>
-                    <li class="rules">You cannot select an answer choice once the timer runs out.</li>
-                    <li class="rules">You cannot exit the quiz while the quiz is in progress.</li>
-                    <li class="rules">If you select a wrong answer choice, time will be deducted.</li>
-                </ol>
-            </p>
+    <header class="timer">Time: <span id="time">0</span></header>
 
-            <!-- start button -->
-                <div id="start-button"><button>Start Quiz</button></div>
-        </section>
+    <section class="wrapper">
+      <div id="start-screen" class="start">
+        <h1>Coding Quiz</h1>
+        <p>
+            <ol>
+                <li>You will only have 60 seconds for all questions.</li>
+                <li>Once you select an answer, it cannot be changed.</li>
+                <li>You cannot select an answer choice once the timer runs out.</li>
+                <li>You cannot exit the quiz while the quiz is in progress.</li>
+                <li>If you select a wrong answer choice, time will be deducted.</li>
+            </ol>
+        </p>
+        <button id="start">Start Quiz</button>
+      </div>
 
-        <!-- Quiz -->
-        <section id="quiz-box" class="hidden">
-            <header>
-                <div class="title">Code Quiz</div>
-            </header>
-            <section>
-                <div id="question-text">
-                    <!-- where questions will be imported from JS -->
-                </div>
-                <div id="answer-choices" class="answer-choices">
-                    <!-- where answers will be imported from JS  -->
-                </div>
-            </section>
-        </section>
+      <div id="questions" class="hide">
+        <h2 id="question-title"></h2>
+        <div id="choices" class="choices"></div>
+      </div>
 
-        <!-- When quiz is over -->
-        <section id="end" class="hidden">
-            <p>Quiz Over!</p>
-            <p>Final Score: <span id="final-score"></span></p>
-            <p>Enter Initials: <input type="text" id="initials" max="3">
-                <button id="submit">Submit</button>
-            </p>
-        </section>
+      <section id="end-screen" class="hide">
+        <h2>Quiz Over</h2>
+        <p>Your final score is <span id="final-score"></span>.</p>
+        <p>
+          Enter initials: <input type="text" id="initials" max="3" />
+          <button id="submit">Submit</button>
+        </p>
+      </section>
 
-        <!-- displays correct or incorrect -->
-        <section id="rightOrWrong"></section>
+      <div id="feedback" class="feedback hide"></div>
+    </section>
 
-        <!-- JS links -->
-        <script src="./Assets/script.js"></script>
-        <script src="./Assets/questions.js"></script>
+    <script src="./Assets/questions.js"></script>
+    <script src="./Assets/script.js"></script>
 
-    </body>
+  </body>
 </html>
