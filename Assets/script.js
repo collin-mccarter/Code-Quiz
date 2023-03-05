@@ -7,7 +7,6 @@ var submitBtn = document.querySelector("#submit");
 
 var initialsEl = document.querySelector("#initials");
 
-
 var currentQuestionIndex = 0;
 var time = questions.length * 10;
 var timerId;
@@ -28,13 +27,13 @@ function startQuiz() {
 }
 
 function clockTick() {
-    time--;
-    timerEl.textContent = time;
+  time--;
+  timerEl.textContent = time;
   
-    if (time <= 0) {
-      quizEnd();
-    }
+  if (time <= 0) {
+    quizEnd();
   }
+}
 
 function getQuestion() {
   var currentQuestion = questions[currentQuestionIndex];
@@ -105,8 +104,7 @@ function saveHighscore() {
   var initials = initialsEl.value.trim();
 
   if (initials !== "") {
-    var highscores =
-      JSON.parse(window.localStorage.getItem("highscores")) || [];
+    var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
     var newScore = {
       score: time,
       initials: initials
