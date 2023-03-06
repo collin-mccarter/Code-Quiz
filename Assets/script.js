@@ -9,7 +9,7 @@ var submitBtn = document.querySelector("#submit");
 var initialsEl = document.querySelector("#initials");
 
 // setting up variables for quiz length and time to answer each question
-var currentQuestionIndex = 0;
+var questionList = 0;
 var time = questions.length * 10;
 var timerId;
 
@@ -23,15 +23,15 @@ function startQuiz() {
 
   questionsEl.removeAttribute("class"); // shows the hidden questions
 
-  timerId = setInterval(clockTick, 1000); // begins the clock at 1 second interval
+  timerId = setInterval(tick, 1000); // begins the clock at 1 second interval
 
   timerEl.textContent = time;
 
-  getQuestion(); // fetches the questions function
+  fetchQuestion(); // fetches the questions function
 }
 
 // making sure the clock ticks at the right time 
-function clockTick() {
+function tick() {
   time--; // timer counts down
   timerEl.textContent = time; // makes time value as text
   
@@ -41,8 +41,8 @@ function clockTick() {
 }
 
 // fetching question function
-function getQuestion() {
-  var currentQuestion = questions[currentQuestionIndex]; // setting 1st question as a variable
+function fetchQuestion() {
+  var currentQuestion = questions[questionList]; // setting 1st question as a variable
 
   // fetching for question title to be displayes in references title slot in html
   var titleEl = document.getElementById("question-title"); 
@@ -66,7 +66,7 @@ function getQuestion() {
 
 // function for when answer is chosen
 function questionClick() {
-  if (this.value !== questions[currentQuestionIndex].answer) {
+  if (this.value !== questions[questionList].answer) {
 
     time -= 10; // if answer is wrong, 10 second penalty
 
@@ -91,13 +91,13 @@ function questionClick() {
   }, 1000);
 
   // looping questions to make sure quiz cycles through all the questions
-  currentQuestionIndex++;
-  if (currentQuestionIndex === questions.length) {
+  questionList++;
+  if (questionList === questions.length) {
     // if out of questions in the list, quiz ends
     quizEnd();
   } else {
     // if questions still are left, fetch new question
-    getQuestion();
+    fetchQuestion();
   }
 }
 
