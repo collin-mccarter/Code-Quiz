@@ -12,7 +12,7 @@ function printHighscores() {
   highscores.forEach(function(score) {
     // creates li
     var liTag = document.createElement("li"); 
-    liTag.textContent = score.initials + " - " + score.score; // adds initials to li
+    liTag.textContent = score.initials + " - " + score.score; // adds initials to li and displays scores next to initials
 
     var olEl = document.getElementById("highscores");
     olEl.appendChild(liTag); // creates highscore and adds it to list

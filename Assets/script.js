@@ -1,4 +1,4 @@
-// DOM variables stated and linked to appropriate html assets
+// variables stated and linked to appropriate html assets
 var startBtn = document.querySelector("#start");
 var questionsEl = document.querySelector("#questions");
 var timerEl = document.querySelector("#time");
