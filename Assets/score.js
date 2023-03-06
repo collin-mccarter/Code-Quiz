@@ -1,5 +1,5 @@
-// function to print highscores
-function printHighscores() {
+// function to display highscores
+function displayHighscores() {
   // gets stored highscores from local storage
   var highscores = JSON.parse(window.localStorage.getItem("highscores")) || []; 
   
@@ -12,7 +12,7 @@ function printHighscores() {
   highscores.forEach(function(score) {
     // creates li
     var liTag = document.createElement("li"); 
-    liTag.textContent = score.initials + " - " + score.score; // adds initials to li and displays scores next to initials
+    liTag.textContent = score.initials + " : " + score.score; // adds initials to li and displays scores next to initials
 
     var olEl = document.getElementById("highscores");
     olEl.appendChild(liTag); // creates highscore and adds it to list
@@ -27,5 +27,5 @@ function clearHighscores() {
   
 document.getElementById("clear").onclick = clearHighscores; // linking button on click to execute clearHighscores function
 
-// prints out the highscores at the end of the function
-printHighscores(); 
+// displays out the highscores at the end of the function
+displayHighscores(); 
