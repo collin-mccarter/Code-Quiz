@@ -1,7 +1,11 @@
+// data set for all questions to be asked
 let questions = [
     {
+        // setting title attribute
         title: "Javascript is an _______ language?",
+        // setting choices
         choices: ["Object Oriented", "Object Based", "Procedural", "None of the Above"],
+        // setting correct answer
         answer: "Object Oriented"
     },
     {
